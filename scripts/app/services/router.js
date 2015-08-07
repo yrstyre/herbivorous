@@ -36,6 +36,7 @@ define(["jquery", "knockout", "sammy", "config", "services/dataservice"], functi
 
             this.get("#/:component", function (context) {
                 vm.componentName(self.getComponentName(context));
+                vm.params({});
             });
         });
         s.run('/');
