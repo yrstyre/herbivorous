@@ -1,9 +1,11 @@
 <div>
-	<p>
-		<span  data-bind="text: place"></span>
-		<a class="btn btn-xs btn-default" data-bind="attr: { href: '#' + '/restaurant/' + city() + '/' + place() + '/edit' }">Ändra <span class="fa fa-pencil-square-o"></span></a>
-	</p>
-
+	<h1 data-bind="text: place"></h1>
+	<h5 data-bind="text: foodType"></h5>
+		
 	<p data-bind="text: city"></p>
 	<a data-bind="attr: { href: website }">Go to website</a>
+	<br/>
+
+	<a class="btn btn-xs btn-default" data-bind="attr: { href: '#' + '/restaurant/' + city() + '/' + place() + '/edit' }">Ändra <span class="fa fa-pencil-square-o"></span></a>
+
 </div>
