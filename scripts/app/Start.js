@@ -19,6 +19,7 @@ define(["knockout", "underscore", "modules/dbConnection", "toastr", "services/ro
             }).then(function (allPlaces) {
                 if (allPlaces.length) {
                     var searchResult = dataservice.getAllPlacesByQuery(allPlaces, self.searchQuery());
+                    console.log(allPlaces);
 
                     if (!searchResult.length) {
                         self.chosenCityPlaces(allPlaces);

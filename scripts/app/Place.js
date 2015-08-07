@@ -1,9 +1,13 @@
 define(["knockout", "underscore", "toastr", "services/dataservice"], function (ko, _, toastr, dataservice) {
 	'use strict';
 
-	var Place = function () {
-		this.place = ko.observable();
-		this.city = ko.observable();
+	var Place = function (params) {
+        var params = params || {};
+		this.place = ko.observable(params.place || "");
+		this.city = ko.observable(params.city || "");
+        this.website = ko.observable(params.website || "");
+        //this.placeType = ko.observable();
+        //latestUpdated = ko.observable();
 	}
 
 	Place.prototype = _.extend(Place.prototype, {
@@ -19,7 +23,8 @@ define(["knockout", "underscore", "toastr", "services/dataservice"], function (k
             place = {
                 _id: new Date().toISOString(),
                 city: this.city(),
-                placeName: this.place()
+                place: this.place(),
+                website: this.website()
             };
             dataservice.addPlace(place).then(function () {
                 toastr.success("Successfully posted a place!");
@@ -29,6 +34,7 @@ define(["knockout", "underscore", "toastr", "services/dataservice"], function (k
 
             this.city("");
             this.place("");
+            this.website("");
         }
 	});
 

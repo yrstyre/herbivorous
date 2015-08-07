@@ -8,9 +8,7 @@ define(["knockout", "Place",
 	'use strict';
 
 	ko.components.register('restaurant-component', {
-		viewModel: function(params) {
-	    	this.params = ko.observable(params);
-	    },
+		viewModel: Place,
         template: restaurantComponent
     });
 

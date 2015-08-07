@@ -30,6 +30,14 @@ define(["knockout", "modules/dbConnection"], function (ko, dbConnection) {
 		}).catch(function (err) {
   			console.log(err);
 		});
+	},
+
+	ds.getPlaceByPlaceNameAndCity = function (city, place) {
+		return ds.getAllPlaces().then(function (allPlaces) {
+			return _.find(allPlaces.rows, function(row) {
+	            return row.doc.city.toLowerCase() === city.toLowerCase() && row.doc.place.toLowerCase() === place.toLowerCase();
+	        });
+		});
 	}
 	return ds;
 });

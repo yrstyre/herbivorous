@@ -1,4 +1,4 @@
-define(["jquery", "knockout", "sammy", "config"], function ($, ko, sammy, config) {
+define(["jquery", "knockout", "sammy", "config", "services/dataservice"], function ($, ko, sammy, config, dataservice) {
 	'use strict';
 
     var router = {};
@@ -14,7 +14,11 @@ define(["jquery", "knockout", "sammy", "config"], function ($, ko, sammy, config
 
             this.get("#/:component/:city/:place", function (context) {
                 vm.componentName(self.getComponentName(context));
-                vm.params(context.params);
+                dataservice.getPlaceByPlaceNameAndCity(context.params.city, context.params.place).then(function (placeData) {
+                    
+                    vm.params(placeData.doc);
+                });
+                
             });
 
             this.get("#/:component/:city", function (context) {
@@ -37,8 +41,3 @@ define(["jquery", "knockout", "sammy", "config"], function ($, ko, sammy, config
 
     return router;
 });
-
-
-// /#/restaurant/malmö/whatever
-// /#/searchresult/malmö
-// /#/start
