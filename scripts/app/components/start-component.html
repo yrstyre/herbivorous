@@ -1,0 +1,33 @@
+<div data-bind="with: params">
+	<h1>Hello, world!</h1>
+	<p>Herp derpsum perp dee derp, mer herderder. Sherp berp derpler, herpem serp tee perper merpus terp dee. Sherpus berps herpsum herpler. Berps herderder herpsum herpderpsmer herp? Derperker der herpler derp derpsum berps perp sherpus.</p>
+
+	<div class="row">
+	    <div class="col-md-12">
+	        <form data-bind="submit: showPlaces">
+	            <div class="form-group">
+	                <label for="search-city">Search city</label>
+	                <input type="text" class="form-control" id="search-city" placeholder="search city" data-bind="value: searchQuery">
+	            </div>
+	            <div class="checkbox">
+	                <label>
+	                    <input type="checkbox"> Check me out
+	                </label>
+	            </div>
+	            <button type="submit" class="btn btn-default pull-right">Search</button>
+	        </form>
+	    </div>
+	</div>
+
+	<div class="row">
+	    <ul class="search-result hidden" data-bind="css: { hidden: !chosenCityPlaces() }, foreach: chosenCityPlaces">
+	        <li class="col-md-4">
+	            <p>
+	                <span data-bind="text: doc.city"></span>,
+	                <a data-bind="attr: { href: '#' + '/restaurant/' + doc.city + '/' + doc.placeName }"><span data-bind="text: doc.placeName"></span></a>
+	                <a href="#" data-bind="click: $parent.removePlace.bind($parent)"><span class="fa fa-times"></span></a>
+	            </p>
+	        </li>
+	    </ul>
+	</div>
+</div>

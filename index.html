@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>herbivorous</title>
+	<link rel="stylesheet" href="scripts/lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="scripts/lib/toastr/toastr.css">
+	<link rel="stylesheet" href="scripts/lib/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			    <span class="sr-only">Toggle navigation</span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">Herbiv"r"us</a>
+			</div>
+
+			<div id="navbar" class="collapse navbar-collapse">
+			  <ul class="nav navbar-nav">
+			  	<li><a data-bind="attr: { href: '#' + '/contribute' }">Suggest place</a></li>
+			  	<li><a data-bind="attr: { href: '#' + '/about' }">About</a></li>
+			  </ul>
+			</div>
+		</div>
+  	</nav>
+	
+	<section class="content-wrapper" id="herbivorous-app">
+		<div class="content-section">
+			<div class="container">
+
+				<div data-bind='component: {
+				    name: componentName,
+				    params: params
+				}'></div>
+				
+			</div>
+    	</div>	
+
+	</section>
+  	
+	<script src="scripts/lib/requirejs/require.js"></script>
+    <script src="scripts/app/require.config.js"></script>
+    <script src="scripts/app/main.js"></script>
+
+
+</body>
+</html>

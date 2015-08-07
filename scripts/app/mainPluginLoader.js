@@ -1,0 +1,1 @@
+define(['bindinghandlers/submitOnEnter'], function () {});
