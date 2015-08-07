@@ -48,7 +48,8 @@ define(["knockout", "modules/dbConnection"], function (ko, dbConnection) {
 			    city: data.city(),
 			    place: data.place(),
 			    website: data.website(),
-			    lastUpdated: new Date().toISOString()
+			    lastUpdated: new Date().toISOString(),
+			    foodType: data.foodType()
 			});
 		});
 	}

@@ -8,8 +8,10 @@ define(["knockout", "underscore", "toastr", "services/dataservice"], function (k
         this.website = ko.observable(params.website || "");
         this.id = ko.observable(params._id || "");
         //this.placeType = ko.observable();
-        //this.foodType = ko.observable();
-        this.lastUpdated = ko.observable();
+        this.foodTypes = [{ title: 'All vegan', description: 'Rabladaortbf' }, { title: 'Vegeterian', description: 'qwerty' }, { title: 'Mixed', description: 'gfgdfg' }, { title: 'Undefined', description: 'Is not suggested' }];
+        //this.additionalFoodOptions = ['Have vegan options', 'Alcohol licence', 'Serve breakfast', 'Serve lunch'];
+        this.foodType = ko.observable(params.foodType || "");
+        this.lastUpdated = ko.observable(params.lastUpdated || "");
 	}
 
 	Place.prototype = _.extend(Place.prototype, {
@@ -27,7 +29,8 @@ define(["knockout", "underscore", "toastr", "services/dataservice"], function (k
                 city: this.city(),
                 place: this.place(),
                 website: this.website(),
-                lastUpdated: this.lastUpdated()
+                lastUpdated: this.lastUpdated(),
+                foodType: this.foodType()
             };
             dataservice.addPlace(place).then(function () {
                 toastr.success("Successfully posted a place!");

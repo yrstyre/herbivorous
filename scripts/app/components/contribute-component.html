@@ -9,6 +9,18 @@
             <input type="text" class="form-control" id="place-name" placeholder="add place" data-bind="value: place">
             <label for="place-name">Website</label>
             <input type="text" class="form-control" id="place-name" placeholder="add place" data-bind="value: website">
+            
+            <h4>Food type</h4>
+            <ul data-bind="foreach: foodTypes">
+                <li class="radio">
+                    <label>
+                        <input type="radio" name="food-type" data-bind="value: title, checked: $parent.foodType">
+                        <span  data-bind="text: title"></span>                       
+                    </label>
+                    
+                </li>
+            </ul>
+          
         </div>
         <button type="submit" class="btn btn-default pull-right" data-bind="click: addPlace">Add!</button>
     </div>
