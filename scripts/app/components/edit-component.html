@@ -1,11 +1,27 @@
-<label for="place-name">Place</label>
-<input type="text" name="place-name" class="form-control" data-bind="value: place">
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+			<label for="place-name">City</label>
+			<input type="text" name="place-name" class="form-control" data-bind="value: city">
+			<label for="place-name">Place</label>
+			<input type="text" name="place-name" class="form-control" data-bind="value: place">
+			<label for="place-name">Website</label>
+			<input type="text" name="place-name" class="form-control" data-bind="value: website">
 
-<label for="place-name">City</label>
-<input type="text" name="place-name" class="form-control" data-bind="value: city">
+			<h4>Food type</h4>
+            <ul data-bind="foreach: foodTypes">
+                <li class="radio">
+                    <label>
+                        <input type="radio" name="food-type" data-bind="value: title, checked: $parent.foodType">
+                        <span  data-bind="text: title"></span>                       
+                    </label>
+                    
+                </li>
+            </ul>
 
-<label for="place-name">Website</label>
-<input type="text" name="place-name" class="form-control" data-bind="value: website">
+		</div>
 
-<button class="btn btn-xs btn-default" data-bind="click: updatePlace">save</button>
-<button class="btn btn-xs btn-default" data-bind="">Avbryt <span class="fa fa-times"></span></button>
+		<button class="btn btn-xs btn-default" data-bind="click: updatePlace">save</button>
+		<button class="btn btn-xs btn-default" data-bind="">Avbryt <span class="fa fa-times"></span></button>
+    </div>
+</div>
