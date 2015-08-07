@@ -38,6 +38,19 @@ define(["knockout", "modules/dbConnection"], function (ko, dbConnection) {
 	            return row.doc.city.toLowerCase() === city.toLowerCase() && row.doc.place.toLowerCase() === place.toLowerCase();
 	        });
 		});
+	},
+
+	ds.updatePlace = function (data) {
+		return dbConnection.get(data.id()).then(function (doc) {
+			return dbConnection.put({
+			    _id: doc._id,
+			    _rev: doc._rev,
+			    city: data.city(),
+			    place: data.place(),
+			    website: data.website(),
+			    lastUpdated: new Date().toISOString()
+			});
+		});
 	}
 	return ds;
 });

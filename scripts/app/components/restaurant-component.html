@@ -1,5 +1,9 @@
 <div>
-	<p data-bind="text: place"></p>
+	<p>
+		<span  data-bind="text: place"></span>
+		<a class="btn btn-xs btn-default" data-bind="attr: { href: '#' + '/restaurant/' + city() + '/' + place() + '/edit' }">Ändra <span class="fa fa-pencil-square-o"></span></a>
+	</p>
+
 	<p data-bind="text: city"></p>
 	<a data-bind="attr: { href: website }">Go to website</a>
 </div>

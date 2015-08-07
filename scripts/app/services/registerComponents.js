@@ -1,15 +1,21 @@
-define(["knockout", "Place",
+define(["knockout", "Start", "Place",
 	"text!components/restaurant-component.html",
+	"text!components/edit-component.html",
 	"text!components/searchResult-component.html",
 	"text!components/start-component.html",
 	"text!components/contribute-component.html",
-	"text!components/about-component.html"], function (ko, Place, restaurantComponent, searchResultComponent, startComponent, contributeComponent, aboutComponent) {
+	"text!components/about-component.html"], function (ko, Start, Place, restaurantComponent, editComponent, searchResultComponent, startComponent, contributeComponent, aboutComponent) {
 
 	'use strict';
 
 	ko.components.register('restaurant-component', {
 		viewModel: Place,
         template: restaurantComponent
+    });
+
+    ko.components.register('edit-component', {
+		viewModel: Place,
+        template: editComponent
     });
 
     ko.components.register('searchResult-component', {
@@ -20,9 +26,7 @@ define(["knockout", "Place",
     });
 
     ko.components.register('start-component', {
-		viewModel: function(params) {
-	        this.params = ko.observable(params);
-	    },
+		viewModel: Start,
         template: startComponent
     });
 
@@ -37,5 +41,5 @@ define(["knockout", "Place",
 	    },
         template: aboutComponent
     });
-	
+
 });

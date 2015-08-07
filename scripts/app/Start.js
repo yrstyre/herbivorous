@@ -17,12 +17,17 @@ define(["knockout", "underscore", "modules/dbConnection", "toastr", "services/ro
             dataservice.getAllPlaces().then(function (result) {
                 return result.rows;
             }).then(function (allPlaces) {
-                if (allPlaces.length) {
-                    var searchResult = dataservice.getAllPlacesByQuery(allPlaces, self.searchQuery());
-                    console.log(allPlaces);
+                var searchResult;
+                if (!allPlaces.length) {
+                    toastr.error("There are no places registered yet!");
+                }
 
+                if(!self.searchQuery()) {
+                    self.chosenCityPlaces(allPlaces);
+                } else {
+                    searchResult = dataservice.getAllPlacesByQuery(allPlaces, self.searchQuery());
                     if (!searchResult.length) {
-                        self.chosenCityPlaces(allPlaces);
+                        self.chosenCityPlaces([]);
                     } else {
                         self.chosenCityPlaces(searchResult);
                     }

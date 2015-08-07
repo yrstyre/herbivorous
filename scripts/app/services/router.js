@@ -9,13 +9,21 @@ define(["jquery", "knockout", "sammy", "config", "services/dataservice"], functi
         var s = sammy('#' + config.appId, function () {
         	this.get("/", function () {
                 vm.componentName("start-component");
-                vm.params(vm);
         	});
 
             this.get("#/:component/:city/:place", function (context) {
                 vm.componentName(self.getComponentName(context));
                 dataservice.getPlaceByPlaceNameAndCity(context.params.city, context.params.place).then(function (placeData) {
-                    
+                    console.log(placeData.doc);
+                    vm.params(placeData.doc);
+                });
+                
+            });
+
+            this.get("#/:restaurant/:city/:place/:component", function (context) {
+                vm.componentName(self.getComponentName(context));
+                dataservice.getPlaceByPlaceNameAndCity(context.params.city, context.params.place).then(function (placeData) {
+                    console.log(placeData.doc);
                     vm.params(placeData.doc);
                 });
                 
