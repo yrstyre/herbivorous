@@ -20,7 +20,18 @@
 	</div>
 
 	<div class="row">
-	    <ul class="search-result hidden" data-bind="css: { hidden: !chosenCityPlaces() }, foreach: chosenCityPlaces">
+		<div class="container hidden" data-bind="css: { hidden: !chosenCityPlaces() }, foreach: chosenCityPlaces">
+			<div class="square col-md-4">
+				<p class="content">
+	                <span data-bind="text: doc.city"></span>,
+	                <a data-bind="attr: { href: '#' + '/restaurant/' + doc.city + '/' + doc.place }"><span data-bind="text: doc.place"></span></a>
+	                <a href="#" data-bind="click: $parent.removePlace.bind($parent)"><span class="fa fa-times"></span></a>
+	            </p>
+			</div>
+
+		</div>
+
+	    <!-- <ul class="search-result hidden" data-bind="css: { hidden: !chosenCityPlaces() }, foreach: chosenCityPlaces">
 	        <li class="col-md-4">
 	            <p>
 	                <span data-bind="text: doc.city"></span>,
@@ -28,6 +39,6 @@
 	                <a href="#" data-bind="click: $parent.removePlace.bind($parent)"><span class="fa fa-times"></span></a>
 	            </p>
 	        </li>
-	    </ul>
+	    </ul> -->
 	</div>
 </div>

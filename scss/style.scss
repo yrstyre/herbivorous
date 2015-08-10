@@ -27,3 +27,21 @@ html,body {
 ul {
 	list-style: none;
 }
+
+.square {
+    // float: left;
+    // position: relative;
+    /* width: 30%; */
+    padding-bottom: 30%;
+    // margin: 1.66%;
+    background-color: #F3F3F3;
+        border: 6px solid #FFF;
+    // overflow: hidden;
+
+    .content {
+    	position: absolute;
+	    height: 90%;
+	    width: 90%;
+	    padding: 5%;
+    }
+}
