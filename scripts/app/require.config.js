@@ -7,6 +7,7 @@ require.config({
 		PouchDB: "../lib/pouchdb/dist/pouchdb",
 		toastr: "../lib/toastr/toastr",
 		sammy: "../lib/sammy/lib/sammy",
-		text: "../lib/requirejs-text/text"
+		text: "../lib/requirejs-text/text",
+		moment: "../lib/moment/moment"
 	}
 });

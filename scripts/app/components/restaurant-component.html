@@ -4,6 +4,7 @@
 		
 	<p data-bind="text: city"></p>
 	<a data-bind="attr: { href: website }">Go to website</a>
+	<p>Senast uppdaterad: <span data-bind="text: lastUpdated"></span></p>
 	<br/>
 
 	<a class="btn btn-xs btn-default" data-bind="attr: { href: '#' + '/restaurant/' + city() + '/' + place() + '/edit' }">Ändra <span class="fa fa-pencil-square-o"></span></a>

@@ -1,4 +1,4 @@
-define(["knockout", "underscore", "toastr", "services/dataservice"], function (ko, _, toastr, dataservice) {
+define(["knockout", "underscore", "toastr", "moment", "services/dataservice"], function (ko, _, toastr, moment, dataservice) {
 	'use strict';
 
 	var Place = function (params) {
@@ -11,7 +11,7 @@ define(["knockout", "underscore", "toastr", "services/dataservice"], function (k
         this.foodTypes = [{ title: 'All vegan', description: 'Rabladaortbf' }, { title: 'Vegeterian', description: 'qwerty' }, { title: 'Mixed', description: 'gfgdfg' }, { title: 'Undefined', description: 'Is not suggested' }];
         //this.additionalFoodOptions = ['Have vegan options', 'Alcohol licence', 'Serve breakfast', 'Serve lunch'];
         this.foodType = ko.observable(params.foodType || "");
-        this.lastUpdated = ko.observable(params.lastUpdated || "");
+        this.lastUpdated = ko.observable(moment(params.lastUpdated).format('YYYY-MM-DD HH:mm') || "");
 	}
 
 	Place.prototype = _.extend(Place.prototype, {
