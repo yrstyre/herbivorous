@@ -20,13 +20,25 @@
 	</div>
 
 	<div class="row">
-		<div class="container hidden" data-bind="css: { hidden: !chosenCityPlaces() }, foreach: chosenCityPlaces">
-			<div class="square col-md-4">
-				<p class="content">
-	                <span data-bind="text: doc.city"></span>,
-	                <a data-bind="attr: { href: '#' + '/restaurant/' + doc.city + '/' + doc.place }"><span data-bind="text: doc.place"></span></a>
-	                <a href="#" data-bind="click: $parent.removePlace.bind($parent)"><span class="fa fa-times"></span></a>
-	            </p>
+		<div class="container hidden" data-bind="css: { hidden: !chosenCityPlaces().length }">
+			<div data-bind="foreach: chosenCityPlaces">
+				<div class="square col-md-4">
+					<div class="content">
+						<a href="#" data-bind="click: $parent.removePlace.bind($parent)"><span class="fa fa-times remove-place"></span></a>
+						<p class="place-presentation">
+			                <span data-bind="text: doc.city"></span>,
+			                <a data-bind="attr: { href: '#' + '/restaurant/' + doc.city + '/' + doc.place }"><span data-bind="text: doc.place"></span></a>
+		                </p>
+		                
+		            </div>
+				</div>
+			</div>
+			<div class="square col-md-4" data-bind="visible: chosenCityPlaces().length >= 5">
+				<div class="content">
+					<p class="place-presentation">
+		                <a data-bind=""><span>See more..</span></a>
+	                </p>
+				</div>
 			</div>
 
 		</div>

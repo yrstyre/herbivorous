@@ -23,13 +23,14 @@ define(["knockout", "underscore", "modules/dbConnection", "toastr", "services/ro
                 }
 
                 if(!self.searchQuery()) {
-                    self.chosenCityPlaces(allPlaces);
+                    self.chosenCityPlaces(self.sampleSearchResult(allPlaces));
                 } else {
                     searchResult = dataservice.getAllPlacesByQuery(allPlaces, self.searchQuery());
                     if (!searchResult.length) {
                         self.chosenCityPlaces([]);
                     } else {
-                        self.chosenCityPlaces(searchResult);
+
+                        self.chosenCityPlaces(self.sampleSearchResult(searchResult));
                     }
                 }
             });
@@ -40,6 +41,10 @@ define(["knockout", "underscore", "modules/dbConnection", "toastr", "services/ro
             if (window.confirm("Are you sure you want to remove this?")) {
                 dataservice.removePlace(place, this);
             }
+        },
+
+        sampleSearchResult: function (searchResult) {
+            return _.sample(searchResult, 5);
         }
     });
 

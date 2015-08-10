@@ -40,8 +40,17 @@ ul {
 
     .content {
     	position: absolute;
-	    height: 90%;
-	    width: 90%;
+	    height: 100%;
+    	width: 92%;
 	    padding: 5%;
+    }
+
+    .remove-place {
+    	float: right;
+    }
+
+    .place-presentation {
+    	text-align: center;
+    	padding-top: 45%;
     }
 }
